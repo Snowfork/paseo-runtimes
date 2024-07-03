@@ -13,6 +13,7 @@ binary-merkle-tree = { version = "14.0.0", default-features = false }
 bp-bridge-hub-cumulus = { version = "0.8.0", default-features = false }
 bp-header-chain = { version = "0.8.0", default-features = false }
 bp-kusama = { version = "0.6.0", default-features = false }
+bp-bridge-hub-paseo = { path = "system-parachains/bridge-hub-paseo/primitives", default-features = false }
 bp-messages = { version = "0.8.0", default-features = false }
 bp-parachains = { version = "0.8.0", default-features = false }
 bp-polkadot = { version = "0.6.0", default-features = false }
@@ -24,6 +25,7 @@ bridge-hub-common = { version = "0.1.0", default-features = false }
 bridge-hub-test-utils = { version = "0.8.0" }
 bridge-runtime-common = { version = "0.8.0", default-features = false }
 clap = { version = "4.5.0" }
+codec = { package = "parity-scale-codec", version = "3.6.9", default-features = false }
 cumulus-pallet-aura-ext = { version = "0.8.0", default-features = false }
 cumulus-pallet-dmp-queue = { version = "0.8.0", default-features = false }
 cumulus-pallet-parachain-system = { version = "0.8.1", default-features = false }
@@ -120,6 +122,7 @@ pallet-xcm = { version = "8.0.4", default-features = false }
 pallet-xcm-benchmarks = { version = "8.0.2", default-features = false }
 pallet-xcm-bridge-hub = { version = "0.3.0", default-features = false }
 pallet-xcm-bridge-hub-router = { version = "0.6.0", default-features = false }
+parachain-info = { version = "0.8.0", default-features = false, package = "staging-parachain-info" }
 parachains-common = { version = "8.0.0", default-features = false }
 parachains-runtimes-test-utils = { version = "8.0.0" }
 parity-scale-codec = { version = "3.6.9", default-features = false }
@@ -141,7 +144,7 @@ smallvec = { version = "1.13.1" }
 snowbridge-beacon-primitives = { version = "0.1.0", default-features = false }
 snowbridge-core = { version = "0.1.1", default-features = false }
 snowbridge-outbound-queue-runtime-api = { version = "0.1.1", default-features = false }
-snowbridge-pallet-ethereum-client = { version = "0.1.1", default-features = false }
+snowbridge-pallet-ethereum-client = { version = "0.1.2", default-features = false }
 snowbridge-pallet-inbound-queue = { version = "0.1.1", default-features = false }
 snowbridge-pallet-inbound-queue-fixtures = { version = "0.9.0" }
 snowbridge-pallet-outbound-queue = { version = "0.1.1", default-features = false }
@@ -181,9 +184,13 @@ staging-xcm = { version = "8.0.1", default-features = false }
 staging-xcm-builder = { version = "8.0.1", default-features = false }
 staging-xcm-executor = { version = "8.0.1", default-features = false }
 static_assertions = { version = "1.1.0" }
+system-parachains-constants = { path = "system-parachains/constants", default-features = false }
 substrate-wasm-builder = { version = "18.0.0" }
 tokio = { version = "1.36.0" }
+xcm = { version = "8.0.1", default-features = false, package = "staging-xcm" }
+xcm-builder = { version = "8.0.1", default-features = false, package = "staging-xcm-builder" }
 xcm-emulator = { version = "0.6.0" }
+xcm-executor = { version = "8.0.1", default-features = false, package = "staging-xcm-executor" }
 paseo-runtime-constants = { package = "paseo-runtime-constants", path = "relay/paseo/constants", default-features = false }
 
 [workspace]
@@ -192,7 +199,10 @@ resolver = "2"
 members = [
 	"chain-spec-generator",
 	"relay/paseo",
-	"relay/paseo/constants"
+	"relay/paseo/constants",
+	"system-parachains/asset-hub-paseo",
+	"system-parachains/bridge-hub-paseo",
+	"system-parachains/bridge-hub-paseo/primitives"
 ]
 
 [profile.release]

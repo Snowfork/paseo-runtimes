@@ -22,10 +22,10 @@
 pub use bp_bridge_hub_cumulus::*;
 use bp_messages::*;
 use bp_runtime::{
-    decl_bridge_finality_runtime_apis, decl_bridge_messages_runtime_apis, Chain, ChainId, Parachain,
+    Chain, ChainId, Parachain,
 };
 use frame_support::dispatch::DispatchClass;
-use sp_runtime::{FixedPointNumber, FixedU128, RuntimeDebug, Saturating};
+use sp_runtime::RuntimeDebug;
 
 /// BridgeHubPolkadot parachain.
 #[derive(RuntimeDebug)]
@@ -57,8 +57,10 @@ impl Chain for BridgeHubPolkadot {
 }
 
 impl Parachain for BridgeHubPolkadot {
-    const PARACHAIN_ID: u32 = BRIDGE_HUB_POLKADOT_PARACHAIN_ID;
+    const PARACHAIN_ID: u32 = BRIDGE_HUB_PASEO_PARACHAIN_ID;
 }
+
+pub const BRIDGE_HUB_PASEO_PARACHAIN_ID: u32 = 1002;
 
 pub mod snowbridge {
     use crate::Balance;
