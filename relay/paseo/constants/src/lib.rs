@@ -145,7 +145,7 @@ mod tests {
 	};
 	use crate::weights::ExtrinsicBaseWeight;
 	use frame_support::weights::WeightToFee as WeightToFeeT;
-	use runtime_common::MAXIMUM_BLOCK_WEIGHT;
+	use polkadot_runtime_common::MAXIMUM_BLOCK_WEIGHT;
 
 	#[test]
 	// Test that the fee for `MAXIMUM_BLOCK_WEIGHT` of weight has sane bounds.
